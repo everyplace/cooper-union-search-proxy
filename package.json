@@ -1,12 +1,14 @@
 {
-  "name": "Express-Hogan-Template",
+  "name": "Cooper-Union-Search-Proxy",
   "version": "0.1.0",
   "dependencies": {
     "express": "*",
     "http":"*",
     "path":"*",
     "request":"*",
-    "hjs":"*"
+    "hjs":"*",
+    "twitter":"*",
+    "util":"*"
   },
   "engines": {
     "node": "0.8.x",
