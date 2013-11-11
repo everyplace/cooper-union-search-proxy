@@ -46,7 +46,10 @@ app.get('/twitter/search/:term', function(req, res){
   });
 
   twit.search(req.params.term, function(data) {
-    res.writeHead(200, { 'Content-Type': 'application/json' });   
+    res.writeHead(200, { 
+      'Content-Type': 'application/json', 
+      'Access-Control-Allow-Origin':'*' 
+    });   
     res.end(JSON.stringify(data));
   });
 
