@@ -1,12 +1,8 @@
 var express = require('express')
   , routes = require('./routes')
-  , user = require('./routes/user')
-  , test = require('./routes/test')
   , http = require('http')
   , path = require('path')
   , request = require('request')
-  , passport = require('passport')  
-  , passportTwitter = require('./middleware/passportTwitter')
   , twitter = require('twitter')
   , util = require('util');
 
@@ -33,8 +29,6 @@ app.configure('development', function(){
 });
 
 
-app.get('/auth/twitter', passportTwitter.auth);
-app.get('/auth/twitter/callback', passportTwitter.callback);
 app.get('/twitter/search/:term', function(req, res){
 
   console.log("Twittering...");
