@@ -43,7 +43,7 @@ app.get('/twitter/search/:term', function(req, res){
 
   //Twitter.prototype.search = function(q, params, callback)
 
-  twit.search(req.params.term, function(data) {
+  twit.search(req.params.term, req.query, function(data) {
     res.writeHead(200, { 
       'Content-Type': 'application/json', 
       'Access-Control-Allow-Origin':'*' 
