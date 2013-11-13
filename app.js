@@ -41,9 +41,7 @@ app.get('/twitter/search/:term', function(req, res){
       access_token_secret: twitterConfig.access_token_secret
   });
 
-  twit.get('/statuses/show/27593302936.json', {include_entities:true}, function(data) {
-    console.log(util.inspect(data));
-  });
+  //Twitter.prototype.search = function(q, params, callback)
 
   twit.search(req.params.term, function(data) {
     res.writeHead(200, { 
