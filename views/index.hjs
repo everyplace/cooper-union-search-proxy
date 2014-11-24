@@ -2,5 +2,5 @@ index.html
 {{title}}
 <ul>
 	<li><a href="/twitter/search/cooper%20union">Sample search for Cooper Union</a></li>
+	<li><a href="/user/search/everyplace">Show user information for @everyplace</a></li>
 </ul>
-<a href="/session">read session</a>

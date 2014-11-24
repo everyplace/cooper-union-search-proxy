@@ -14,9 +14,9 @@ app.configure(function(){
   app.set('view engine', 'hjs');
   app.use(express.favicon());
   app.use(express.logger('dev'));
-  app.use(express.cookieParser()); 
+  app.use(express.cookieParser());
   app.use(express.bodyParser());
-  app.use(express.session({ secret: process.env.COOKIE_SECRET }));  
+  app.use(express.session({ secret: process.env.COOKIE_SECRET }));
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
@@ -44,24 +44,27 @@ app.get('/twitter/search/:term', function(req, res){
   //Twitter.prototype.search = function(q, params, callback)
 
   twit.search(req.params.term, req.query, function(data) {
-    res.writeHead(200, { 
-      'Content-Type': 'application/json', 
-      'Access-Control-Allow-Origin':'*' 
-    });   
+    res.writeHead(200, {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin':'*'
+    });
     res.end(JSON.stringify(data));
   });
 
-  
+
 
 });
+
+app.get('/user/search/:username', routes.json, routes.search_user);
+
 app.get('/', routes.index);
 
 if(process.env.DEBUG == 'true') {
   console.log("DEBUG ENABLED");
   app.get('/session', function(req, res){
-    res.writeHead(200, { 'Content-Type': 'application/json' });   
+    res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(req.session));
-  });  
+  });
 };
 
 http.createServer(app).listen(app.get('port'), function(){
