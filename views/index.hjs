@@ -3,4 +3,5 @@ index.html
 <ul>
 	<li><a href="/twitter/search/cooper%20union">Sample search for Cooper Union</a></li>
 	<li><a href="/user/search/everyplace">Show user information for @everyplace</a></li>
+	<li><a href="/twitter/search/cooper%20union?since_id=542080665177841660">Show search results for Cooper Union after the tweet id 542080665177841660</a></li>
 </ul>
