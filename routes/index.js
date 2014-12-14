@@ -29,3 +29,13 @@ exports.search_user = function(req, res) {
     });
 
 };
+
+exports.rate_limit_status = function(req, res) {
+
+  twit.get('/application/rate_limit_status.json', function(data) {
+    // console.log(util.inspect(data), res.statusCode);
+    // console.log(data, res);
+    res.end(JSON.stringify(data));
+  });
+
+};

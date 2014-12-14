@@ -56,6 +56,8 @@ app.get('/twitter/search/:term', function(req, res){
 });
 
 app.get('/user/search/:username', routes.json, routes.search_user);
+app.get('/rate_limit_status', routes.json, routes.rate_limit_status);
+
 
 app.get('/', routes.index);
 
