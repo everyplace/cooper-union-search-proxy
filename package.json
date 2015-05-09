@@ -2,7 +2,7 @@
   "name": "Cooper-Union-Search-Proxy",
   "version": "0.1.0",
   "dependencies": {
-    "express": "*",
+    "express": "3.x",
     "http":"*",
     "path":"*",
     "request":"*",

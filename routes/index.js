@@ -39,3 +39,26 @@ exports.rate_limit_status = function(req, res) {
   });
 
 };
+
+exports.reverse_geocode = function(req, res) {
+
+  if(req.query.lat && req.query.long) {
+
+    var options = {
+      lat: req.query.lat,
+      long: req.query.long
+    }
+
+    twit.get('/geo/reverse_geocode.json', options, function(data) {
+      // console.log(util.inspect(data), res.statusCode);
+      // console.log(data, res);
+      res.end(JSON.stringify(data));
+    });
+
+  } else {
+    var message = "no lat and long";
+    console.log(message);
+    res.end(message)
+  }
+
+};
