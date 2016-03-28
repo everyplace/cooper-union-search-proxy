@@ -82,10 +82,17 @@ exports.search_tweets = function(req, res, next) {
     //Twitter.prototype.search = function(q, params, callback)
 
     twit.get('search/tweets', req.query, function(error, tweets, response){
-      res.writeHead(200, {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin':'*'
-      });
-      res.end(JSON.stringify(tweets));
+
+      res.end(JSON.stringify({
+        "error":error,
+        "tweets":tweets,
+        "response":response
+      }))
+      //
+      // res.writeHead(200, {
+      //   'Content-Type': 'application/json',
+      //   'Access-Control-Allow-Origin':'*'
+      // });
+      // res.end(JSON.stringify(response));
     });
 }

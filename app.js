@@ -26,7 +26,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/twitter/search/:term', routes.json, routes.search_tweets);
+app.get('/twitter/search', routes.json, routes.search_tweets);
 app.get('/user/search/:username', routes.json, routes.search_user);
 app.get('/rate_limit_status', routes.json, routes.rate_limit_status);
 app.get('/geo/reverse_geocode', routes.json, routes.reverse_geocode);
