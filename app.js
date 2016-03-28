@@ -26,35 +26,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-
-app.get('/twitter/search/:term', function(req, res){
-
-  console.log("Twittering...");
-  var twitterConfig = JSON.parse(process.env.TWITTER);
-
-  console.log(twitterConfig);
-
-  var twit = new twitter({
-      consumer_key: twitterConfig.consumer_key,
-      consumer_secret: twitterConfig.consumer_secret,
-      access_token_key: twitterConfig.access_token_key,
-      access_token_secret: twitterConfig.access_token_secret
-  });
-
-  //Twitter.prototype.search = function(q, params, callback)
-
-  twit.search(req.params.term, req.query, function(data) {
-    res.writeHead(200, {
-      'Content-Type': 'application/json',
-      'Access-Control-Allow-Origin':'*'
-    });
-    res.end(JSON.stringify(data));
-  });
-
-
-
-});
-
+app.get('/twitter/search/:term', routes.json, routes.search_tweets);
 app.get('/user/search/:username', routes.json, routes.search_user);
 app.get('/rate_limit_status', routes.json, routes.rate_limit_status);
 app.get('/geo/reverse_geocode', routes.json, routes.reverse_geocode);
