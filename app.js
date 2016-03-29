@@ -31,8 +31,11 @@ app.get('/twitter/search', apicache('5 minutes'), routes.json, routes.search_twe
 app.get('/user/search/:username', routes.json, routes.search_user);
 app.get('/rate_limit_status', routes.json, routes.rate_limit_status);
 app.get('/geo/reverse_geocode', routes.json, routes.reverse_geocode);
-app.get('/debug', apicache('5 minutes'), routes.json, function(req, res){
-  res.end(JSON.stringify(apicache.getIndex()))
+app.get('/debug', apicache('5 minutes'), function(req, res){
+  // res.end(JSON.stringify(apicache.getIndex()))
+
+  res.end(JSON.stringify({"debug":"cache should be enabled"})
+
 });
 app.get('/', routes.index);
 
