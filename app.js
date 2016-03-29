@@ -34,7 +34,7 @@ app.get('/geo/reverse_geocode', routes.json, routes.reverse_geocode);
 app.get('/debug', apicache('5 minutes'), function(req, res){
   // res.end(JSON.stringify(apicache.getIndex()))
 
-  res.end(JSON.stringify({"debug":"cache should be enabled"})
+  res.end(JSON.stringify({"debug":"cache should be enabled"}))
 
 });
 app.get('/', routes.index);
