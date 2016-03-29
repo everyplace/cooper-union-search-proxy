@@ -81,7 +81,7 @@ exports.search_tweets = function(req, res, next) {
 
     //Twitter.prototype.search = function(q, params, callback)
 
-    twit.get('search/tweets.json', req.query, function(error, tweets, response){
+    twit.get('/search/tweets.json', req.query, function(error, tweets, response){
 
       res.end(JSON.stringify({
         "error":error,
