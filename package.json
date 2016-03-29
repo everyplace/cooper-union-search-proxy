@@ -9,7 +9,7 @@
     "hjs":"*",
     "twitter":"*",
     "util":"*",
-    "apicache":"0.1.12"
+    "apicache":"0.0.12"
   },
   "engines": {
     "node": "0.8.x",
