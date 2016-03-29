@@ -8,7 +8,8 @@
     "request":"*",
     "hjs":"*",
     "twitter":"*",
-    "util":"*"
+    "util":"*",
+    "apicache":"0.1.12"
   },
   "engines": {
     "node": "0.8.x",

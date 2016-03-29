@@ -4,7 +4,8 @@ var express = require('express')
   , path = require('path')
   , request = require('request')
   , twitter = require('twitter')
-  , util = require('util');
+  , util = require('util')
+  , apicache = require('apicache').options({ debug: true }).middleware;
 
 var app = module.exports = express();
 
@@ -26,7 +27,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-app.get('/twitter/search', routes.json, routes.search_tweets);
+app.get('/twitter/search', apicache('5 minutes'), routes.json, routes.search_tweets);
 app.get('/user/search/:username', routes.json, routes.search_user);
 app.get('/rate_limit_status', routes.json, routes.rate_limit_status);
 app.get('/geo/reverse_geocode', routes.json, routes.reverse_geocode);
